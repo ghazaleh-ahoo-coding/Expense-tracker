@@ -39,10 +39,11 @@ export default function App() {
   function handleAddExpense(data) {
     const newExpense = {
       id: createId(),
-      ...data,
+      ...data, //spered operator in JavaScript
+
     };
 
-    setExpenses((prev) => [newExpense, ...prev]);
+    setExpenses((prev) => [newExpense, ...prev]); //pre is the pervious data this function keep the perivious datas of an array
   }
 
   function handleDeleteExpense(id) {
@@ -55,7 +56,6 @@ export default function App() {
       <header className="header">
         <div>
           <h1 className="title">Expense Tracker</h1>
-          <p className="subtitle">Week 1 + Week 2 Practice Project</p>
         </div>
       </header>
       <Summary

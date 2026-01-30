@@ -13,15 +13,15 @@ export default function ExpenseForm({ onAddExpense }) {
   function submit() {
     setError("");
 
-    const cleanTitle = title.trim();
+    const cleanTitle = title.trim(); //trim is a metode that remove the spapces of an input
     const numberAmount = Number(amount);
 
     if (!cleanTitle) return setError("Title is required.");
-    if (!Number.isFinite(numberAmount) || numberAmount <= 0)
+    if (!Number.isFinite(numberAmount) || numberAmount <= 0) //.isInfinit is a methode in js
       return setError("Amount must be > 0.");
 
     onAddExpense({ title: cleanTitle, amount: numberAmount, category });
-
+    //without any refresh after clicking add the states will be blank 
     setTitle("");
     setAmount("");
     setCategory("Food");
@@ -35,7 +35,7 @@ export default function ExpenseForm({ onAddExpense }) {
         <SelectInput label="Category" value={category} onChange={setCategory} options={CATEGORIES} />
       </div>
 
-      {error ? <p className="error">{error}</p> : null}
+      {error ? <p className="error">{error}</p> : null} 
 
       <button className="btn primary" onClick={submit}>
         Add
